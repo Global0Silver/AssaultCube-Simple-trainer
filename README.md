@@ -7,7 +7,7 @@ made by it by following guides and tutorials<br/>
 > Infinite ammo(all weapons)<br/>
 > No recoil<br/>
 > Activate dual pistols<br/>
-> Make it so the console stays on top of the game <br/>
+> Make it so the console stays on top of the game(little buggy) <br/>
  
 >[!WARNING]
 >This was only tested in singleplayer against bots. Do not try to use it on a server without being a host
