@@ -1,6 +1,7 @@
 #  trainer for AssaultCube 1.3.0.2
 This is the first cheat i've ever made<br/>
 made by it by following guides and tutorials<br/>
+all of the offsets and adresses were found and not pasted
 ![image](https://github.com/user-attachments/assets/f5078427-d61e-4172-bf5f-87b55e17ad1c)
 ## Feature list<br/>
 > God mode<br/>
