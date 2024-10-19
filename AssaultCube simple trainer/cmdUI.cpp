@@ -14,7 +14,7 @@ void cmdUI(bool bHealth, bool bAmmo, bool bRecoil, bool bDualpistols,bool OnTop)
 	std::cout << "[Numpad1]Infinite health   - " << bools[bHealth] << "\n";
 	std::cout << "[Numpad2]Infinite ammo     - " << bools[bAmmo] << "\n";
 	std::cout << "[Numpad3]No recoil         - " << bools[bRecoil] << "\n";
-	std::cout << "[Numpad4]Toggle Dualpistol - " << bools[bDualpistols] << "\n";
+	std::cout << "[Numpad4]Toggle Dualpistols- " << bools[bDualpistols] << "\n";
 	std::cout << "[Numpad5]CMD always on top - " << bools[OnTop] << "\n";
 	std::cout << "[Insert ]Exit";
 }
