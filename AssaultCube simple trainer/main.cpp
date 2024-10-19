@@ -3,13 +3,13 @@
 
 //this is my first ever cheat so it may not be that clean
 
+
 int main() {
     system("MODE 40,10"); //resizes the console window
     
     HANDLE hProcess = 0;
     uintptr_t moduleBase = 0, localPlayerPtr = 0, healthAddr = 0, dualPistoladdr = 0, dualPistolAmmoaddr = 0;
     bool bHealth = false, bAmmo = false, bRecoil = false, bDualpistols = false, OnTop = false;
-   
     const int off = 0, on = 1; 
     const int newValue = 80085 ,origValue = 100;
     const int magAmmo = 20;
@@ -21,7 +21,6 @@ int main() {
 
         moduleBase =  GetModuleBaseAdresss(procId, L"ac_client.exe");
         localPlayerPtr = moduleBase + 0x0017E0A8;
-
         healthAddr = FindDMAAddy(hProcess, localPlayerPtr, {0xEC});
         dualPistoladdr = FindDMAAddy(hProcess, localPlayerPtr, { 0x100 });
         dualPistolAmmoaddr = FindDMAAddy(hProcess, localPlayerPtr, { 0x148 });
@@ -39,7 +38,7 @@ int main() {
             
             if (GetAsyncKeyState(VK_NUMPAD1) & 1) {
                 
-                bHealth = !bHealth; //sometimes in a bot lobby it just stops workinng keep that in mind5
+                bHealth = !bHealth; 
                 cmdUI(bHealth, bAmmo, bRecoil, bDualpistols, OnTop);//not very happy that i have to call it every time but its simple 
                 
                 if (!bHealth); {
@@ -81,16 +80,13 @@ int main() {
                 bDualpistols = !bDualpistols;
                 cmdUI(bHealth, bAmmo, bRecoil, bDualpistols, OnTop);
                 if (bDualpistols) {
-                   
-                    mem::PatchEx((BYTE*)dualPistoladdr, (BYTE*)&on, sizeof(on), hProcess);
+
                     mem::PatchEx((BYTE*)dualPistolAmmoaddr, (BYTE*)&magAmmo, sizeof(magAmmo), hProcess);//adds 20 ammo as you spawn with 0
                 }
                 else {
-                    
-                    mem::PatchEx((BYTE*)dualPistoladdr, (BYTE*)&off, sizeof(off), hProcess);
-                    
-                }
 
+                    mem::PatchEx((BYTE*)dualPistoladdr, (BYTE*)&off, sizeof(off), hProcess);
+                }
             }
             if (GetAsyncKeyState(VK_INSERT) & 1) {
                 
@@ -108,14 +104,18 @@ int main() {
                     ::SetWindowPos(GetConsoleWindow(), HWND_NOTOPMOST, 0, 0, 0, 0, SWP_DRAWFRAME | SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);
                     ::ShowWindow(GetConsoleWindow(), SW_SHOWMINIMIZED);
                 }
-
-
             }
             //continous write
             if (bHealth) {
  
                 mem::PatchEx((BYTE*)healthAddr, (BYTE*)&newValue, sizeof(newValue), hProcess);
             }
+            if (bDualpistols) {
+
+                mem::PatchEx((BYTE*)dualPistoladdr, (BYTE*)&on, sizeof(on), hProcess);
+                
+            }
+            
             Sleep(15); //for performance
     }
 }   
