@@ -1,7 +1,7 @@
 #  trainer for AssaultCube 1.3.0.2
 This is the first cheat i've ever made<br/>
 made by it by following guides and tutorials<br/>
-![image](https://github.com/user-attachments/assets/14669f63-5324-4c33-aa35-895a53b5f2f3)<br/>
+![image](https://github.com/user-attachments/assets/f5078427-d61e-4172-bf5f-87b55e17ad1c)
 ## Feature list<br/>
 > God mode<br/>
 > Infinite ammo(all weapons)<br/>
